@@ -7,7 +7,7 @@ set backspace=indent,eol,start
 set number
 
 "-------------Visuals--------------"
-colorscheme hybrid_material
+colorscheme hybrid
 set t_Co=256
 set guifont=Menlo:h15
 set linespace=10
@@ -16,7 +16,7 @@ set linespace=10
 set guioptions-=e 
 
 " Show invisibles
-" set listchars=eol:¬,tab:»\ ,extends:>,precedes:<,space:·
+
 set listchars=tab:»\ ,extends:>,precedes:<,space:·
 set list
 
@@ -40,7 +40,7 @@ set autoindent           " always set autoindenting on
 set copyindent           " copy the previous indentation on autoindenting
 
 " Tabs, Indents, and Spaces
-set tabstop=8            " a tab is four spaces
+set tabstop=8            " a tab is eight spaces
 set expandtab            " expand tabs by default (overloadable per file type later)
 set softtabstop=4        " when hitting <BS>, pretend like a tab is removed, even if spaces
 set shiftwidth=4         " number of spaces to use
@@ -119,6 +119,9 @@ let g:user_emmet_settings = {
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 
+"Make it easy to edit the Vimrc Plugins file.
+nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
+
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
 
@@ -128,3 +131,10 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END
+
+"-------------Tips-n-Tricks--------------"
+" How to Rename Files:
+" http://vi.stackexchange.com/questions/305/how-can-i-rename-the-file-im-editing
+
+" Indent Multiple Lines:
+" http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi
