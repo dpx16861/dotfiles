@@ -16,7 +16,6 @@ set linespace=10
 set guioptions-=e 
 
 " Show invisibles
-
 set listchars=tab:»\ ,extends:>,precedes:<,space:·
 set list
 
@@ -108,7 +107,6 @@ highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 "/
 "/ Emmet JSX (className)
 "/
-
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
