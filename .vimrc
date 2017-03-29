@@ -2,22 +2,33 @@ set nocompatible
 
 so ~/.vim/plugins.vim
 
-syntax enable
+syntax on
 set backspace=indent,eol,start
 set number
 
 "-------------Visuals--------------"
-colorscheme hybrid
+set background=dark
+colorscheme hybrid_material
 set t_Co=256
-set guifont=Menlo:h15
-set linespace=10
+set guifont=Source_Code_Pro:h17
+set linespace=6
 
 "We don't want Gui tabs.
 set guioptions-=e 
 
 " Show invisibles
 set listchars=tab:»\ ,extends:>,precedes:<,space:·
-set list
+set nolist
+" Now change the colours so that tabs blend in with the background
+highlight SpecialKey ctermfg=8 ctermbg=8
+
+" Now add a highlight group for tabs we do want to be visible.
+" The command below is likely to work in all colorschemes, but feel free to
+" edit to your taste.
+highlight link VisibleTab Error
+
+" Set up a match to use the new highlight for tabs at the end of the line
+match VisibleTab /\t$/
 
 "Disable Gui scrollbars.
 set guioptions-=l
@@ -35,6 +46,7 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autowriteall         " Save on buffer switch
 
+set smartindent
 set autoindent           " always set autoindenting on
 set copyindent           " copy the previous indentation on autoindenting
 
@@ -113,6 +125,13 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+"let user_emmet_expandabbr_key = '<c-e>'
+
+"/
+"/ Airline
+"/
+set laststatus=2
+
 "-------------Mappings--------------"
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
@@ -122,6 +141,15 @@ nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
 
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
+
+"Move lines
+" https://dockyard.com/blog/2013/09/26/vim-moving-lines-aint-hard
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 "-------------Auto-Commands--------------"
 "Automatically source the Vimrc file on save.
