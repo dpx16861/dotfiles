@@ -17,6 +17,10 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
